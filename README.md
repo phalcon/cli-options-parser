@@ -1,10 +1,10 @@
-# CLI Options Parser
+# Cop
 
 
 [![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)][:license:]
 [![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
 
-Command line arguments parser.
+Command line arguments/options parser.
 
 ## Requirements
 
@@ -37,7 +37,7 @@ php composer.phar install
 
 ## Installation via Git
 
-CLI Options Parser can be installed by using Git.
+The Cop can be installed by using Git.
 
 Just clone the repo and checkout the current branch:
 
@@ -142,7 +142,7 @@ php test.php \
 
 ## License
 
-CLI Options parser is open source software licensed under the [New BSD License][:license:].<br>
+The Cop is open source software licensed under the [New BSD License][:license:].<br>
 © Phalcon Team and contributors
 
 [:license:]: https://github.com/phalcon/cli-options-parser/blob/master/LICENSE.txt
