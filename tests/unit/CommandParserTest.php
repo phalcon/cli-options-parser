@@ -17,19 +17,19 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Phalcon\Cli\Tests\Unit;
+namespace Phalcon\Cop\Tests\Unit;
 
+use Phalcon\Cop\Parser;
 use PHPUnit\Framework\TestCase;
-use Phalcon\Cli\Parser\CommandParser;
 
 /**
- * Phalcon\Cli\Tests\Unit\CommandParserTest
+ * Phalcon\Cop\Tests\Unit\ParserTest
  *
- * @package Phalcon\Cli\Tests\Unit
+ * @package Phalcon\Cop\Tests\Unit
  */
-class CommandParserTest extends TestCase
+class ParserTest extends TestCase
 {
-    /** @var CommandParser */
+    /** @var Parser */
     protected $parser;
 
     /**
@@ -37,11 +37,11 @@ class CommandParserTest extends TestCase
      */
     protected function initParserObject()
     {
-        $this->parser = new CommandParser();
+        $this->parser = new Parser();
     }
 
     /**
-     * Tests CommandParser::parse
+     * Tests Parser::parse
      *
      * @test
      * @issue  -
@@ -56,7 +56,7 @@ class CommandParserTest extends TestCase
     }
 
     /**
-     * Tests CommandParser::getBoolean
+     * Tests Parser::getBoolean
      *
      * @test
      * @issue  -

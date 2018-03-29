@@ -17,14 +17,14 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Phalcon\Cli\Parser;
+namespace Phalcon\Cop;
 
 use Phalcon\Exception as PhalconException;
 
 /**
- * Phalcon\Cli\Parser\Exception
+ * Phalcon\Cop\Exception
  *
- * @package Phalcon\Cli\Parser
+ * @package Phalcon\Cop
  */
 class Exception extends PhalconException
 {

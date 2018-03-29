@@ -17,14 +17,14 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Phalcon\Cli\Parser;
+namespace Phalcon\Cop;
 
 /**
- * Phalcon\Cli\Parser\CommandParser
+ * Phalcon\Cop\Parser
  *
- * @package Phalcon\Cli\Parser
+ * @package Phalcon\Cop
  */
-class CommandParser
+class Parser
 {
     /** @var array */
     private $parsedCommands;
