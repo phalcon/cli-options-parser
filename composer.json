@@ -1,7 +1,7 @@
 {
     "name": "phalcon/cli-options-parser",
     "type": "library",
-    "description": "This tools provide you useful CLI commands parser",
+    "description": "Command line arguments parser",
     "keywords": ["phalcon", "cli", "command-line", "command", "line", "option", "parser", "getopt"],
     "homepage": "https://phalconphp.com",
     "license": "BSD-3-Clause",
