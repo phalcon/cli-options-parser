@@ -1,9 +1,8 @@
-# CLI Options parser
+# CLI Options Parser
+
 
 [![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)][:license:]
 [![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
-
-## What is Cli-options-parser?
 
 Command line arguments parser.
 
@@ -12,7 +11,7 @@ Command line arguments parser.
 * PHP >= 7.0
 * Phalcon >= 3.3.*
 
-## Installing via Composer
+## Installing via [Composer](https://getcomposer.org)
 
 Install composer in a common location or in your project:
 
@@ -24,7 +23,7 @@ Create the composer.json file as follows:
 
 ```json
 {
-    "require-dev": {
+    "require": {
         "phalcon/cli-options-parser": "@stable"
     }
 }
@@ -38,13 +37,12 @@ php composer.phar install
 
 ## Installation via Git
 
-Phalcon cli-options-parser can be installed by using Git.
+CLI Options Parser can be installed by using Git.
 
 Just clone the repo and checkout the current branch:
 
 ```bash
 git clone https://github.com/phalcon/cli-options-parser.git
-cd phalcon-devtools
 ```
 
 ## Usage
@@ -54,14 +52,14 @@ use Phalcon\Cli\Parser\CommandParser
 
 $parser = new CommandParser();
 
-Handle params from $argv
+// Handle params from $argv
 $params = $parser->parse($argv);
 
-Handle params from $_SERVER
+// Handle params from $_SERVER
 $params = $parser->parse();
 
-After handle params, CommandParser provides boolean params via key:
-Get param if exist or return false as default value
+// After handle params, CommandParser provides boolean params via key:
+// Get param if exist or return false as default value
 $parser->getBoolean('foo');
 
 Get param if exist or return true as default value
@@ -113,7 +111,19 @@ php test.php arg1 arg2 arg3
     2 => 'arg3',
 ]
 
-php test.php plain-arg --foo --bar=baz --funny="spam=eggs" --also-funny=spam=eggs 'plain arg 2' -abc -k=value "plain arg 3" --s="original" --s='overwrite' --s
+php test.php \
+    plain-arg \
+    --foo \
+    --bar=baz \
+    --funny="spam=eggs" \
+    --also-funny=spam=eggs \
+    'plain arg 2'
+    -abc \
+    -k=value \
+    "plain arg 3" \
+    --s="original" \
+    --s='overwrite' \
+    --s
 [
     0            => 'plain-arg',
     'foo'        => true,
