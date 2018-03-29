@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4" : {
-            "Phalcon\\Cli\\Parser\\" : "src/"
+            "Phalcon\\Cop\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Phalcon\\Cli\\Tests\\Unit\\": "tests/unit/"
+            "Phalcon\\Cop\\Tests\\Unit\\": "tests/unit/"
         }
     }
 }

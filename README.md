@@ -48,9 +48,9 @@ git clone https://github.com/phalcon/cli-options-parser.git
 ## Usage
 
 ```php
-use Phalcon\Cli\Parser\CommandParser
+use Phalcon\Cop\Parser
 
-$parser = new CommandParser();
+$parser = new Parser();
 
 // Handle params from $argv
 $params = $parser->parse($argv);
