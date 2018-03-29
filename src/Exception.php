@@ -2,7 +2,7 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Cli options parser                                              |
+  | Phalcon Cli option parser                                              |
   +------------------------------------------------------------------------+
   | Copyright (c) 2011-present Phalcon Team (https://www.phalconphp.com)   |
   +------------------------------------------------------------------------+
@@ -17,16 +17,15 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Helper;
+namespace Phalcon\Cli\Parser;
+
+use Phalcon\Exception as PhalconException;
 
 /**
- * Unit Helper
+ * Phalcon\Cli\Parser\Exception
  *
- * Here you can define custom actions
- * all public methods declared in helper class will be available in $I
- *
- * @package Helper
+ * @package Phalcon\Cli\Parser
  */
-class Unit extends \Codeception\Module
+class Exception extends PhalconException
 {
 }
