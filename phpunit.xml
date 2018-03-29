@@ -1,0 +1,7 @@
+<phpunit bootstrap="tests/autoload.php">
+    <testsuites>
+        <testsuite name="Cli command parser">
+            <directory>tests/unit</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

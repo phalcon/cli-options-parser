@@ -38,8 +38,7 @@ before_script:
 
 script:
   - vendor/bin/phpcs
-  - vendor/bin/codecept build
-  - vendor/bin/codecept run unit -v
+  - phpunit tests -v
   - vendor/bin/phpstan analyse -l max -c phpstan.neon src -v
 
 notifications:
