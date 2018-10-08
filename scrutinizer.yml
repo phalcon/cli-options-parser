@@ -33,7 +33,7 @@ build:
       -
         command: './vendor/bin/phpunit'
         coverage:
-          file: 'ci/index.xml'
+          file: './ci/index.xml'
           format: 'clover'
       - command: './vendor/bin/phpstan analyse -l max ./src/'
 
