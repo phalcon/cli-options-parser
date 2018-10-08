@@ -9,7 +9,6 @@ Command line arguments/options parser.
 ## Requirements
 
 * PHP >= 7.0
-* Phalcon >= 3.3.*
 
 ## Installing via [Composer](https://getcomposer.org)
 
