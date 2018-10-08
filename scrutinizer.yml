@@ -26,11 +26,11 @@ build:
 
   tests:
     override:
-      - command: 'cd /home/scrutinizer/build; ./phpunit'
+      - command: 'cd /home/scrutinizer/build; ./vendor/bin/phpunit'
         coverage:
           file: 'ci/index.xml'
           format: 'clover'
-      - command: 'cd /home/scrutinizer/build; ./phpstan -l max ./src/'
+      - command: 'cd /home/scrutinizer/build; ./vendor/bin/phpstan -l max ./src/'
 
 filter:
   excluded_paths:
