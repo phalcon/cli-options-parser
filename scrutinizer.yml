@@ -29,11 +29,17 @@ build:
 
   tests:
     override:
-      - command: 'cd /home/scrutinizer/build; ./vendor/bin/phpunit'
+      -
+        command:
+          - cd /home/scrutinizer/build
+          - ./vendor/bin/phpunit
         coverage:
           file: 'ci/index.xml'
           format: 'clover'
-      - command: 'cd /home/scrutinizer/build; ./vendor/bin/phpstan --level max ./src/'
+      -
+        command:
+          - cd /home/scrutinizer/build
+          - ./vendor/bin/phpstan --level max ./src/
 
 filter:
   excluded_paths:
