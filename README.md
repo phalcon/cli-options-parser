@@ -3,6 +3,9 @@
 
 [![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)][:license:]
 [![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/build.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/build-status/master)
 
 Command line arguments/options parser.
 
