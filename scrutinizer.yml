@@ -35,7 +35,7 @@ build:
         coverage:
           file: 'ci/index.xml'
           format: 'clover'
-      - command: './vendor/bin/phpstan --level max ./src/'
+      - command: './vendor/bin/phpstan --level=max ./src/'
 
 filter:
   excluded_paths:
