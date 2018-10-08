@@ -56,6 +56,46 @@ class ParserTest extends TestCase
     }
 
     /**
+     * Tests Parser::parse with empty parameters
+     *
+     * @test
+     * @issue  -
+     * @author Nikolaos Dimopoulos <nikos@phalconphp.com>
+     * @since  2018-10-08
+     */
+    public function shouldParseCliCommandWithNoParameters()
+    {
+        $oldParams = $_SERVER['argv'] ?? [];
+        unset($_SERVER['argv']);
+
+        $this->assertEquals([], $this->parser->parse());
+
+        $_SERVER['argv'] = $oldParams;
+    }
+
+    /**
+     * Tests Parser::parse with empty parameters but server parameters
+     *
+     * @test
+     * @issue  -
+     * @author Nikolaos Dimopoulos <nikos@phalconphp.com>
+     * @since  2018-10-08
+     */
+    public function shouldParseCliCommandWithNoParametersAndServerParameters()
+    {
+        $oldParams = $_SERVER['argv'] ?? [];
+        $_SERVER['argv'] = [
+            '/usr/bin/phalcon',
+            '--az',
+            'value1',
+        ];
+
+        $this->assertEquals(['az' => 'value1'], $this->parser->parse());
+
+        $_SERVER['argv'] = $oldParams;
+    }
+
+    /**
      * Tests Parser::getBoolean
      *
      * @test
@@ -65,7 +105,7 @@ class ParserTest extends TestCase
      *
      * @dataProvider booleanProvider
      */
-    public function shouldTransformeParamToBool($params, $expect)
+    public function shouldTransformParamToBool($params, $expect)
     {
         $this->parser->parse($params['argv']);
 

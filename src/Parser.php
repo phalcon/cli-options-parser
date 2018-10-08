@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the Cop package.
  *
@@ -38,7 +40,8 @@ class Parser
     /**
      * Parse console input.
      *
-     * @param  array $argv
+     * @param  array $argv Arguments to parse. Defaults to empty array
+     *
      * @return array
      */
     public function parse(array $argv = []): array
@@ -56,8 +59,9 @@ class Parser
     /**
      * Get boolean from parsed parameters.
      *
-     * @param  string $key
-     * @param  bool $default
+     * @param  string $key     The parameter's "key"
+     * @param  bool   $default A default value in case the key is not set
+     *
      * @return bool
      */
     public function getBoolean(string $key, bool $default = false): bool
@@ -70,7 +74,7 @@ class Parser
             return (bool)$this->parsedCommands[$key];
         }
 
-        return $this->getCoalescingDefaul($this->parsedCommands[$key], $default);
+        return $this->getCoalescingDefault($this->parsedCommands[$key], $default);
     }
 
     /**
@@ -86,7 +90,8 @@ class Parser
     /**
      * Handle received parameters
      *
-     * @param array $argv
+     * @param array $argv The array with the arguments passed in the CLI
+     *
      * @return array
      */
     protected function handleArguments(array $argv): array
@@ -133,9 +138,10 @@ class Parser
     }
 
     /**
-     * Delete dashes from param
+     * Delete dashes from parameters
      *
-     * @param string $argument
+     * @param string $argument The argument to parse
+     *
      * @return string
      */
     protected function stripSlashes(string $argument): string
@@ -152,11 +158,12 @@ class Parser
     /**
      * Return either received parameter or default
      *
-     * @param string $value
-     * @param bool $default
+     * @param string $value   The parameter passed
+     * @param bool   $default A default value if the parameter is not set
+     *
      * @return bool
      */
-    protected function getCoalescingDefaul(string $value, bool $default): bool
+    protected function getCoalescingDefault(string $value, bool $default): bool
     {
         return $this->boolParamSet[$value] ?? $default;
     }
@@ -164,7 +171,8 @@ class Parser
     /**
      * Parse command `foo=bar`
      *
-     * @param string $command
+     * @param string $command The command string supplied
+     *
      * @return bool
      */
     protected function parseAndMergeCommandWithEqualSign(string $command): bool
@@ -179,14 +187,18 @@ class Parser
     }
 
     /**
-     * @param string $arg
-     * @param int $eqPos
+     * Returns a key/value array, splitting a parameter passed that has an
+     * assignment i.e. --foo=baz
+     *
+     * @param string $arg   The argument passed
+     * @param int    $eqPos The position of where the equals sign is located
      * @return array
      */
     protected function getParamWithEqual(string $arg, int $eqPos): array
     {
         $key       = $this->stripSlashes(substr($arg, 0, $eqPos));
-        $out[$key] = substr($arg, $eqPos +1);
+        $out       = [];
+        $out[$key] = substr($arg, $eqPos + 1);
 
         return $out;
     }
