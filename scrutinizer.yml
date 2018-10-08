@@ -15,31 +15,27 @@ build:
     directories:
       - ~/cphalcon
 
-#  dependencies:
-#    before:
-#      - cd /home/scrutinizer/build
-#      -
-#        command: 'cd ~/ && git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b master && cd cphalcon/build && ./install'
-#        not_if: 'test -e /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so'
-#      -
-#        command: 'cp -v /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so  /home/scrutinizer/.phpenv/versions/7.1.12/lib/php/extensions/no-debug-zts-20160303/'
-#        only_if: 'test -e /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so'
-#      - sed -i '$ a \\n[Phalcon]\nextension=phalcon.so\n' /home/scrutinizer/.phpenv/versions/7.1.12/etc/php.ini
-#      - php -m | grep -i Phalcon
+  #  dependencies:
+  #    before:
+  #      - cd /home/scrutinizer/build
+  #      -
+  #        command: 'cd ~/ && git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b master && cd cphalcon/build && ./install'
+  #        not_if: 'test -e /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so'
+  #      -
+  #        command: 'cp -v /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so  /home/scrutinizer/.phpenv/versions/7.1.12/lib/php/extensions/no-debug-zts-20160303/'
+  #        only_if: 'test -e /home/scrutinizer/cphalcon/build/php7/64bits/modules/phalcon.so'
+  #      - sed -i '$ a \\n[Phalcon]\nextension=phalcon.so\n' /home/scrutinizer/.phpenv/versions/7.1.12/etc/php.ini
+  #      - php -m | grep -i Phalcon
 
   tests:
     override:
+      - command: 'cd /home/scrutinizer/build'
       -
-        command:
-          - cd /home/scrutinizer/build
-          - ./vendor/bin/phpunit
+        command: './vendor/bin/phpunit'
         coverage:
           file: 'ci/index.xml'
           format: 'clover'
-      -
-        command:
-          - cd /home/scrutinizer/build
-          - ./vendor/bin/phpstan --level max ./src/
+      - command: './vendor/bin/phpstan --level max ./src/'
 
 filter:
   excluded_paths:
