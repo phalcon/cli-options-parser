@@ -21,9 +21,6 @@ namespace Phalcon\Cop;
 class Parser
 {
     /** @var array */
-    private $parsedCommands;
-
-    /** @var array */
     private $boolParamSet = [
         'y'     => true,
         'n'     => false,
@@ -37,24 +34,8 @@ class Parser
         'off'   => false,
     ];
 
-    /**
-     * Parse console input.
-     *
-     * @param  array $argv Arguments to parse. Defaults to empty array
-     *
-     * @return array
-     */
-    public function parse(array $argv = []): array
-    {
-        if (empty($argv)) {
-            $argv = $this->getArgvFromServer();
-        }
-
-        array_shift($argv);
-        $this->parsedCommands = [];
-
-        return $this->handleArguments($argv);
-    }
+    /** @var array */
+    private $parsedCommands;
 
     /**
      * Get boolean from parsed parameters.
@@ -78,6 +59,25 @@ class Parser
     }
 
     /**
+     * Parse console input.
+     *
+     * @param  array $argv Arguments to parse. Defaults to empty array
+     *
+     * @return array
+     */
+    public function parse(array $argv = []): array
+    {
+        if (empty($argv)) {
+            $argv = $this->getArgvFromServer();
+        }
+
+        array_shift($argv);
+        $this->parsedCommands = [];
+
+        return $this->handleArguments($argv);
+    }
+
+    /**
      * Gets array of arguments passed from the input.
      *
      * @return array
@@ -85,6 +85,36 @@ class Parser
     protected function getArgvFromServer(): array
     {
         return empty($_SERVER['argv']) ? [] : $_SERVER['argv'];
+    }
+
+    /**
+     * Return either received parameter or default
+     *
+     * @param string $value   The parameter passed
+     * @param bool   $default A default value if the parameter is not set
+     *
+     * @return bool
+     */
+    protected function getCoalescingDefault(string $value, bool $default): bool
+    {
+        return $this->boolParamSet[$value] ?? $default;
+    }
+
+    /**
+     * Returns a key/value array, splitting a parameter passed that has an
+     * assignment i.e. --foo=baz
+     *
+     * @param string $arg   The argument passed
+     * @param int    $eqPos The position of where the equals sign is located
+     * @return array
+     */
+    protected function getParamWithEqual(string $arg, int $eqPos): array
+    {
+        $key       = $this->stripSlashes(substr($arg, 0, $eqPos));
+        $out       = [];
+        $out[$key] = substr($arg, $eqPos + 1);
+
+        return $out;
     }
 
     /**
@@ -138,37 +168,6 @@ class Parser
     }
 
     /**
-     * Delete dashes from parameters
-     *
-     * @param string $argument The argument to parse
-     *
-     * @return string
-     */
-    protected function stripSlashes(string $argument): string
-    {
-        if (substr($argument, 0, 1) !== '-') {
-            return $argument;
-        }
-
-        $argument = substr($argument, 1);
-
-        return $this->stripSlashes($argument);
-    }
-
-    /**
-     * Return either received parameter or default
-     *
-     * @param string $value   The parameter passed
-     * @param bool   $default A default value if the parameter is not set
-     *
-     * @return bool
-     */
-    protected function getCoalescingDefault(string $value, bool $default): bool
-    {
-        return $this->boolParamSet[$value] ?? $default;
-    }
-
-    /**
      * Parse command `foo=bar`
      *
      * @param string $command The command string supplied
@@ -187,19 +186,20 @@ class Parser
     }
 
     /**
-     * Returns a key/value array, splitting a parameter passed that has an
-     * assignment i.e. --foo=baz
+     * Delete dashes from parameters
      *
-     * @param string $arg   The argument passed
-     * @param int    $eqPos The position of where the equals sign is located
-     * @return array
+     * @param string $argument The argument to parse
+     *
+     * @return string
      */
-    protected function getParamWithEqual(string $arg, int $eqPos): array
+    protected function stripSlashes(string $argument): string
     {
-        $key       = $this->stripSlashes(substr($arg, 0, $eqPos));
-        $out       = [];
-        $out[$key] = substr($arg, $eqPos + 1);
+        if (substr($argument, 0, 1) !== '-') {
+            return $argument;
+        }
 
-        return $out;
+        $argument = substr($argument, 1);
+
+        return $this->stripSlashes($argument);
     }
 }
