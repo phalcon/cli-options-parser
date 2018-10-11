@@ -17,6 +17,9 @@
     <!-- Use PSR-2 as a base -->
     <rule ref="PSR2"/>
 
+    <!-- Uncomment to use colors in progress or report -->
+    <!-- arg name="colors" / -->
+
     <!--
         If no files or directories are specified on the command line
         your custom standard can specify what files should be checked
@@ -25,10 +28,12 @@
         on the command line will ignore all file tags.
     -->
     <file>src</file>
+    <file>tests</file>
 
     <!--
         You can hard-code ignore patterns directly into your
         custom standard so you don't have to specify the
         patterns on the command line.
     -->
+    <exclude-pattern>tests/fixtures/*</exclude-pattern>
 </ruleset>
