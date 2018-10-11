@@ -1,31 +1,23 @@
 <?php
 
-/*
-  +------------------------------------------------------------------------+
-  | Phalcon Cli option parser                                              |
-  +------------------------------------------------------------------------+
-  | Copyright (c) 2011-present Phalcon Team (https://www.phalconphp.com)   |
-  +------------------------------------------------------------------------+
-  | This source file is subject to the New BSD License that is bundled     |
-  | with this package in the file LICENSE.txt.                             |
-  |                                                                        |
-  | If you did not receive a copy of the license and are unable to         |
-  | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
-  +------------------------------------------------------------------------+
-  | Authors: Sergii Svyrydenko <sergey.v.sviridenko@gmail.com>             |
-  +------------------------------------------------------------------------+
-*/
+/**
+ * This file is part of the Cop package.
+ *
+ * (c) Phalcon Team <team@phalconphp.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-namespace Phalcon\Cop\Tests\Unit;
+namespace Phalcon\Cop\Tests;
 
 use Phalcon\Cop\Parser;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Phalcon\Cop\Tests\Unit\ParserTest
+ * Phalcon\Cop\Tests\ParserTest
  *
- * @package Phalcon\Cop\Tests\Unit
+ * @package Phalcon\Cop\Tests
  */
 class ParserTest extends TestCase
 {
@@ -33,22 +25,21 @@ class ParserTest extends TestCase
     protected $parser;
 
     /**
-     * @before
+     * {@inheritdoc}
+     *
+     * @return void
      */
-    protected function initParserObject()
+    public function setUp()
     {
         $this->parser = new Parser();
     }
 
     /**
-     * Tests Parser::parse
-     *
      * @test
-     * @issue  -
-     * @author Sergii Svyrydenko <sergey.v.sviridenko@gmail.com>
-     * @since  2018-03-29
-     *
      * @dataProvider parseProvider
+     *
+     * @param array $params
+     * @param array $expect
      */
     public function shouldParseCliCommand($params, $expect)
     {
@@ -56,35 +47,26 @@ class ParserTest extends TestCase
     }
 
     /**
-     * Tests Parser::getBoolean
-     *
      * @test
-     * @issue  -
-     * @author Sergii Svyrydenko <sergey.v.sviridenko@gmail.com>
-     * @since  2018-03-29
-     *
      * @dataProvider booleanProvider
+     *
+     * @param array $params
+     * @param bool  $expect
      */
-    public function shouldTransformeParamToBool($params, $expect)
+    public function shouldTransformParamsToBool($params, $expect)
     {
         $this->parser->parse($params['argv']);
 
         $this->assertEquals($expect, $this->parser->getBoolean($params['key'], $params['default']));
     }
 
-    /**
-     * Provider for test shouldParseCliCommand
-     */
     public function parseProvider()
     {
-        return include PATH_FIXTURES . 'command_parser_test/parse_parameters.php';
+        return include __DIR__ . '/fixtures/parse_parameters.php';
     }
 
-    /**
-     * Provider for test shouldTransformeParamToBool
-     */
     public function booleanProvider()
     {
-        return include PATH_FIXTURES . 'command_parser_test/boolean_parameters.php';
+        return include __DIR__ . '/fixtures/boolean_parameters.php';
     }
 }
