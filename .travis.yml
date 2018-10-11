@@ -51,6 +51,9 @@ before_script:
 script:
   - ./vendor/bin/phpunit --disallow-test-output
 
+after_success:
+  - if [[ ! -z "${CODECOV_TOKEN}" ]]; then (bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"); fi;
+
 jobs:
   include:
   - stage: Static Code Analysis
