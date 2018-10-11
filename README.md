@@ -1,10 +1,10 @@
 # Cop
 
 
-[![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)][:license:]
+[![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg)](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
+[![Code Coverage](https://codecov.io/gh/phalcon/cli-options-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/phalcon/cli-options-parser)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/build.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/build-status/master)
 
 Command line arguments/options parser.
@@ -18,57 +18,30 @@ Command line arguments/options parser.
 Install composer in a common location or in your project:
 
 ```bash
-curl -s http://getcomposer.org/installer | php
-```
-
-Create the composer.json file as follows:
-
-```json
-{
-    "require": {
-        "phalcon/cli-options-parser": "@stable"
-    }
-}
-```
-
-Run the composer installer:
-
-```bash
-php composer.phar install
-```
-
-## Installation via Git
-
-The Cop can be installed by using Git.
-
-Just clone the repo and checkout the current branch:
-
-```bash
-git clone https://github.com/phalcon/cli-options-parser.git
+composer require phalcon/cli-options-parser
 ```
 
 ## Usage
 
 ```php
-use Phalcon\Cop\Parser
+use Phalcon\Cop\Parser;
 
 $parser = new Parser();
 
-// Handle params from $argv
+// Parse params from the $argv
 $params = $parser->parse($argv);
 
-// Handle params from $_SERVER
+// Parse params from the $_SERVER['argv']
 $params = $parser->parse();
 
-// After handle params, CommandParser provides boolean params via key:
-// Get param if exist or return false as default value
+// After parsing input, Parser provides a way to gets booleans:
 $parser->getBoolean('foo');
 
-Get param if exist or return true as default value
+// Get param `foo` or return TRUE as a default value
 $parser->getBoolean('foo', true);
 ```
 
-## Example
+### Examples
 
 ```
 php test.php -az value1 -abc value2
@@ -144,7 +117,5 @@ php test.php \
 
 ## License
 
-The Cop is open source software licensed under the [New BSD License][:license:].<br>
-© Phalcon Team and contributors
-
-[:license:]: https://github.com/phalcon/cli-options-parser/blob/master/LICENSE.txt
+The Cop is open source software licensed under the [New BSD License](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE.txt).<br>
+© Phalcon Team
