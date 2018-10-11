@@ -1,6 +1,0 @@
-parameters:
-    bootstrap: %rootDir%/../../../tests/phpstan.php
-
-    excludes_analyse:
-
-    ignoreErrors:
