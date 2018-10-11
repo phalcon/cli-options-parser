@@ -70,7 +70,7 @@ class Parser
             return (bool)$this->parsedCommands[$key];
         }
 
-        return $this->getCoalescingDefaul($this->parsedCommands[$key], $default);
+        return $this->getCoalescingDefault($this->parsedCommands[$key], $default);
     }
 
     /**
@@ -156,7 +156,7 @@ class Parser
      * @param bool $default
      * @return bool
      */
-    protected function getCoalescingDefaul(string $value, bool $default): bool
+    protected function getCoalescingDefault(string $value, bool $default): bool
     {
         return $this->boolParamSet[$value] ?? $default;
     }
@@ -169,7 +169,9 @@ class Parser
      */
     protected function parseAndMergeCommandWithEqualSign(string $command): bool
     {
-        if (($eqPos = strpos($command, '=')) !== false) {
+        $eqPos = strpos($command, '=');
+
+        if ($eqPos !== false) {
             $this->parsedCommands = array_merge($this->parsedCommands, $this->getParamWithEqual($command, $eqPos));
 
             return true;
