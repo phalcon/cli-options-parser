@@ -32,11 +32,5 @@
         <log
             type="coverage-clover"
             target="build/coverage.xml"/>
-
-        <log
-            type="coverage-html"
-            target="build"
-            lowUpperBound="60"
-            highLowerBound="90"/>
     </logging>
 </phpunit>
