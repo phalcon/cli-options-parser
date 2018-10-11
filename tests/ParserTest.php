@@ -46,6 +46,14 @@ class ParserTest extends TestCase
         $this->assertEquals($expect, $this->parser->parse($params['command']));
     }
 
+    /** @test */
+    public function shouldParseCommandFromTheServer()
+    {
+        $_SERVER['argv'] = ['script.php', 'arg1', 'arg2', 'arg3'];
+
+        $this->assertEquals(['arg1', 'arg2', 'arg3'], $this->parser->parse());
+    }
+
     /**
      * @test
      * @dataProvider booleanProvider

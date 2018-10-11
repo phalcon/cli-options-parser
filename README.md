@@ -1,7 +1,7 @@
 # Cop
 
 
-[![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE)
+[![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg)](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
 [![Code Coverage](https://codecov.io/gh/phalcon/cli-options-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/phalcon/cli-options-parser)
 
