@@ -7,7 +7,7 @@ build:
     postgresql: false
     redis: false
     php:
-      version: 7.1.12
+      version: 7.2
       ini:
         'date.timezone': 'UTC'
 
@@ -19,6 +19,7 @@ build:
         coverage:
           file: './build/coverage.xml'
           format: 'clover'
+      - command: 'composer require phpstan/phpstan'
       - command: './vendor/bin/phpstan analyse -l max ./src/'
 
 filter:
