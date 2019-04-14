@@ -36,6 +36,33 @@ class Parser
     private $parsedCommands;
 
     /**
+     * Check if parsed parameters has param.
+     *
+     * @param  string $key     The parameter's "key"
+     * @return bool
+     */
+    public function has($key): bool
+    {
+        return isset($this->parsedCommands[$key]);
+    }
+    
+    /**
+     * Get value from parsed parameters.
+     *
+     * @param  string $key     The parameter's "key"
+     * @param  mixed  $default A default value in case the key is not set
+     * @return mixed
+     */
+    public function get($key, $default = null)
+    {
+        if (!$this->has($key)) {
+            return $default;
+        }
+
+        return $this->parsedCommands[$key];
+    }
+    
+    /**
      * Get boolean from parsed parameters.
      *
      * @param  string $key     The parameter's "key"
@@ -45,7 +72,7 @@ class Parser
      */
     public function getBoolean(string $key, bool $default = false): bool
     {
-        if (!isset($this->parsedCommands[$key])) {
+        if (!$this->has($key)) {
             return $default;
         }
 
