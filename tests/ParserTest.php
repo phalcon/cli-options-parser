@@ -13,6 +13,7 @@ namespace Phalcon\Cop\Tests;
 
 use Phalcon\Cop\Parser;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * Phalcon\Cop\Tests\ParserTest
@@ -104,6 +105,84 @@ class ParserTest extends TestCase
             $this->parser->getParsedCommands(),
             "Parsed commands should be returned after re-parsing original command."
         );
+    }
+
+    /**
+     * @test
+     * @dataProvider parseProvider
+     *
+     * @param array $params
+     * @param array $expect
+     */
+    public function testGet_returnsBoundDefaultValueIfValueNotSet(array $params, array $expect)
+    {
+        $expectedDefaultValues = [
+            123,
+            "test",
+            12.3,
+            true,
+            new stdClass()
+        ];
+        $nonExistingParameterKey = "non-existing-parameter-key";
+
+        foreach ($expectedDefaultValues as $expectedDefaultValue) {
+            $this->assertEquals(
+                $expectedDefaultValue,
+                $this->parser->get($nonExistingParameterKey, $expectedDefaultValue),
+                "Should return the provided default value, if the queried parameter doesn't exist in an empty/fresh object."
+            );
+        }
+
+        $this->parser->parse($params["command"]);
+
+        foreach ($expectedDefaultValues as $expectedDefaultValue) {
+            $this->assertEquals(
+                $expectedDefaultValue,
+                $this->parser->get($nonExistingParameterKey, $expectedDefaultValue),
+                "Should return null, if the queried parameter doesn't exist in a populated/parsed object."
+            );
+        }
+    }
+
+    /**
+     * @test
+     * @dataProvider parseProvider
+     *
+     * @param array $params
+     * @param array $expect
+     */
+    public function testGet_returnsNullIfParamDoesNotExist(array $params, array $expect)
+    {
+        $nonExistingParameterKey = "non-existing-parameter-key";
+        $this->assertNull(
+            $this->parser->get($nonExistingParameterKey),
+            "Should return null, if the queried parameter doesn't exist in an empty/fresh object."
+        );
+
+        $this->parser->parse($params["command"]);
+        $this->assertNull(
+            $this->parser->get($nonExistingParameterKey),
+            "Should return null, if the queried parameter doesn't exist in a populated/parsed object."
+        );
+    }
+
+    /**
+     * @test
+     * @dataProvider parseProvider
+     *
+     * @param array $params
+     * @param array $expect
+     */
+    public function testGet_returnsValueIfParamDoesExist(array $params, array $expect)
+    {
+        $this->parser->parse($params["command"]);
+        foreach ($expect as $parameterKey => $expectedValue) {
+            $this->assertEquals(
+                $expectedValue,
+                $this->parser->get($parameterKey),
+                "It's expected to have the value returned untouched."
+            );
+        }
     }
 
     public function parseProvider()
