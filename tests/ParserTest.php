@@ -68,6 +68,44 @@ class ParserTest extends TestCase
         $this->assertEquals($expect, $this->parser->getBoolean($params['key'], $params['default']));
     }
 
+    public function testGetParsedCommands_shouldReturnAnEmptyArrayIfObjectIsFresh()
+    {
+        $parser = new Parser();
+        $this->assertEmpty(
+            $parser->getParsedCommands(),
+            "It's expected to receive an empty array if no parsing has been done yet."
+        );
+    }
+
+    /**
+     * @test
+     * @dataProvider parseProvider
+     *
+     * @param array $params
+     * @param array $expect
+     */
+    public function testGetParsedCommands_shouldReturnParsedCommand(array $params, array $expect)
+    {
+        $this->parser->parse($params["command"]);
+        $this->assertEquals(
+            $expect,
+            $this->parser->getParsedCommands(),
+            "Parsed commands should be returned."
+        );
+        $this->parser->parse(["script-with-no-parameters"]);
+        $this->assertEmpty(
+            $this->parser->getParsedCommands(),
+            "Parser state should be modified absolutely, if overridden by another parse call."
+        );
+
+        $this->parser->parse($params["command"]);
+        $this->assertEquals(
+            $expect,
+            $this->parser->getParsedCommands(),
+            "Parsed commands should be returned after re-parsing original command."
+        );
+    }
+
     public function parseProvider()
     {
         return include __DIR__ . '/fixtures/parse_parameters.php';
