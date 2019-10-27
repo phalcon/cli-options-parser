@@ -33,7 +33,7 @@ class Parser
     ];
 
     /** @var array */
-    private $parsedCommands;
+    private $parsedCommands = [];
 
     /**
      * Check if parsed parameters has param.
@@ -221,4 +221,14 @@ class Parser
 
         return $this->stripSlashes($argument);
     }
+
+    /**
+     *
+     * @return array
+     */
+    public function getParsedCommands(): array
+    {
+        return $this->parsedCommands;
+    }
+
 }
