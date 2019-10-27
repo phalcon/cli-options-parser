@@ -69,7 +69,7 @@ class ParserTest extends TestCase
         $this->assertEquals($expect, $this->parser->getBoolean($params['key'], $params['default']));
     }
 
-    public function testGetParsedCommands_shouldReturnAnEmptyArrayIfObjectIsFresh()
+    public function testGetParsedCommandsShouldReturnEmptyArrayOnNewObject()
     {
         $parser = new Parser();
         $this->assertEmpty(
@@ -85,7 +85,7 @@ class ParserTest extends TestCase
      * @param array $params
      * @param array $expect
      */
-    public function testGetParsedCommands_shouldReturnParsedCommand(array $params, array $expect)
+    public function testGetParsedCommandsShouldReturnParsedCommand(array $params, array $expect)
     {
         $this->parser->parse($params["command"]);
         $this->assertEquals(
@@ -96,7 +96,8 @@ class ParserTest extends TestCase
         $this->parser->parse(["script-with-no-parameters"]);
         $this->assertEmpty(
             $this->parser->getParsedCommands(),
-            "Parser state should be modified absolutely, if overridden by another parse call."
+            "Parser state should be modified absolutely, 
+            if overridden by another parse call."
         );
 
         $this->parser->parse($params["command"]);
@@ -114,7 +115,7 @@ class ParserTest extends TestCase
      * @param array $params
      * @param array $expect
      */
-    public function testGet_returnsBoundDefaultValueIfValueNotSet(array $params, array $expect)
+    public function testGetReturnsBoundDefaultValueIfNotSet(array $params, array $expect)
     {
         $expectedDefaultValues = [
             123,
@@ -123,13 +124,15 @@ class ParserTest extends TestCase
             true,
             new stdClass()
         ];
+        
         $nonExistingParameterKey = "non-existing-parameter-key";
 
         foreach ($expectedDefaultValues as $expectedDefaultValue) {
             $this->assertEquals(
                 $expectedDefaultValue,
                 $this->parser->get($nonExistingParameterKey, $expectedDefaultValue),
-                "Should return the provided default value, if the queried parameter doesn't exist in an empty/fresh object."
+                "Should return the provided default value, 
+                if the queried parameter doesn't exist in an empty/fresh object."
             );
         }
 
@@ -139,7 +142,8 @@ class ParserTest extends TestCase
             $this->assertEquals(
                 $expectedDefaultValue,
                 $this->parser->get($nonExistingParameterKey, $expectedDefaultValue),
-                "Should return null, if the queried parameter doesn't exist in a populated/parsed object."
+                "Should return null, 
+                if the queried parameter doesn't exist in a populated/parsed object."
             );
         }
     }
@@ -151,18 +155,20 @@ class ParserTest extends TestCase
      * @param array $params
      * @param array $expect
      */
-    public function testGet_returnsNullIfParamDoesNotExist(array $params, array $expect)
+    public function testGetReturnsNullIfParamDoesNotExist(array $params, array $expect)
     {
         $nonExistingParameterKey = "non-existing-parameter-key";
         $this->assertNull(
             $this->parser->get($nonExistingParameterKey),
-            "Should return null, if the queried parameter doesn't exist in an empty/fresh object."
+            "Should return null,
+            if the queried parameter doesn't exist in an empty/fresh object."
         );
 
         $this->parser->parse($params["command"]);
         $this->assertNull(
             $this->parser->get($nonExistingParameterKey),
-            "Should return null, if the queried parameter doesn't exist in a populated/parsed object."
+            "Should return null,
+            if the queried parameter doesn't exist in a populated/parsed object."
         );
     }
 
@@ -173,7 +179,7 @@ class ParserTest extends TestCase
      * @param array $params
      * @param array $expect
      */
-    public function testGet_returnsValueIfParamDoesExist(array $params, array $expect)
+    public function testGetReturnsValueIfParamDoesExist(array $params, array $expect)
     {
         $this->parser->parse($params["command"]);
         foreach ($expect as $parameterKey => $expectedValue) {
