@@ -60,5 +60,16 @@
         "issues": "https://github.com/phalcon/cli-options-parser/issues",
         "forum": "https://forum.phalconphp.com/",
         "source": "https://github.com/phalcon/cli-options-parser"
+    },
+    "archive": {
+        "exclude": [
+            "/build",
+            "/tests",
+            ".travis.yml",
+            "boxfile.yml",
+            "phpcs.xml.dist",
+            "phpunit.xml.dist",
+            "scrutinizer.yml"
+        ]
     }
 }
