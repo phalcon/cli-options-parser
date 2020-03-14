@@ -38,7 +38,7 @@ class Parser
     /**
      * Check if parsed parameters has param.
      *
-     * @param  string $key     The parameter's "key"
+     * @param  string|int $key     The parameter's "key"
      * @return bool
      */
     public function has($key): bool
@@ -49,7 +49,7 @@ class Parser
     /**
      * Get value from parsed parameters.
      *
-     * @param  string $key     The parameter's "key"
+     * @param  string|int $key     The parameter's "key"
      * @param  mixed  $default A default value in case the key is not set
      * @return mixed
      */
