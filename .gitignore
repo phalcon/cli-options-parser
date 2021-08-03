@@ -9,6 +9,7 @@ vendor
 composer.lock
 phpunit.xml
 phpcs.xml
+.phpunit.result.cache
 
 infection.json
 infection-log.txt
