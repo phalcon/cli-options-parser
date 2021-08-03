@@ -30,7 +30,7 @@ class ParserTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp():void
     {
         $this->parser = new Parser();
     }

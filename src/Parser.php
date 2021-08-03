@@ -131,6 +131,7 @@ class Parser
      */
     protected function getParamWithEqual(string $arg, int $eqPos): array
     {
+        $out = [];
         $key       = $this->stripSlashes(substr($arg, 0, $eqPos));
         $out[$key] = substr($arg, $eqPos +1);
 

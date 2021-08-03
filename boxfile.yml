@@ -1,7 +1,7 @@
 run.config:
   engine: php
   engine.config:
-    runtime: php-7.1
+    runtime: php-7.3
     document_root: public
     allow_url_fopen: 'On'
     disable_functions:
