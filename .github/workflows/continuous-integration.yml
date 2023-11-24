@@ -142,3 +142,7 @@ jobs:
       - name: "Display structure of downloaded files"
         run: ls -R
         working-directory: reports
+
+      - name: "Upload coverage to Codacy"
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        working-directory: reports
