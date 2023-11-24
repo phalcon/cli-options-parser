@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         colors="true"
->
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
-
-    <testsuites>
-        <testsuite name="CLI Option Parser Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-
-    <php>
-        <ini name="date.timezone" value="UTC"/>
-        <ini name="display_errors" value="on"/>
-        <ini name="display_startup_errors" value="on"/>
-    </php>
-
-    <logging>
-        <log
-            type="coverage-text"
-            target="php://stdout"
-            lowUpperBound="60"
-            highLowerBound="90"/>
-
-        <log
-            type="coverage-clover"
-            target="build/coverage.xml"/>
-    </logging>
+         colors="true">
+  <coverage>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <report>
+      <clover outputFile="build/coverage.xml"/>
+      <text outputFile="php://stdout"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="CLI Option Parser Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <ini name="date.timezone" value="UTC"/>
+    <ini name="display_errors" value="on"/>
+    <ini name="display_startup_errors" value="on"/>
+  </php>
+  <logging/>
 </phpunit>

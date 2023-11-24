@@ -1,0 +1,28 @@
+# For local development only.
+
+version: '3'
+
+services:
+  cli-options-parser-8.0:
+    container_name: cli-options-parser-8.0
+    hostname: cli-options-parser-80
+    build: docker/8.0
+    working_dir: /srv
+    volumes:
+      - .:/srv
+
+  cli-options-parser-8.1:
+    container_name: cli-options-parser-8.1
+    hostname: cli-options-parser-81
+    build: docker/8.1
+    working_dir: /srv
+    volumes:
+      - .:/srv
+
+  cli-options-parser-8.2:
+    container_name: cli-options-parser-8.2
+    hostname: cli-options-parser-82
+    build: docker/8.2
+    working_dir: /srv
+    volumes:
+      - .:/srv
