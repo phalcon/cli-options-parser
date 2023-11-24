@@ -62,7 +62,7 @@ jobs:
 
       - name: "PHPCS"
         run: |
-          vendor/bin/phpcs --standard=./phpcs.xml
+          vendor/bin/phpcs --standard=./phpcs.xml.dist
 
   unit-tests:
     needs: phpcs
