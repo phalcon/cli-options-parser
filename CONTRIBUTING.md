@@ -31,8 +31,7 @@ information you seek. If your question remains unanswered, explore the
 additional options provided below._
 
 *  Questions should go to [GitHub Discussions](https://phalcon.io/discussions)
-*  Another way is to ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with
-  [`phalcon`](https://stackoverflow.com/questions/tagged/phalcon)
+*  Another way is to ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with [`phalcon`](https://stackoverflow.com/questions/tagged/phalcon)
 *  Come join the Phalcon [Discord](https://phalcon.io/discord)
 *  Our social network accounts are:
   *  [Telegram](https://phalcon.io/telegram)

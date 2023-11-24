@@ -61,10 +61,19 @@ class Parser
             return (bool)$this->parsedCommands[$key];
         }
 
-        return $this->getCoalescingDefault(
-            $this->parsedCommands[$key],
-            $default
-        );
+        return match ($this->parsedCommands[$key]) {
+            'y',
+            'yes',
+            'true',
+            '1',
+            'on' => true,
+            'n',
+            'no',
+            'false',
+            '0',
+            'off' => false,
+            default => $default,
+        };
     }
 
     /**
@@ -115,31 +124,6 @@ class Parser
     protected function getArgvFromServer(): array
     {
         return empty($_SERVER['argv']) ? [] : $_SERVER['argv'];
-    }
-
-    /**
-     * Return either received parameter or default
-     *
-     * @param string $value   The parameter passed
-     * @param bool   $default A default value if the parameter is not set
-     *
-     * @return bool
-     */
-    protected function getCoalescingDefault(string $value, bool $default): bool
-    {
-        return match ($value) {
-            'y',
-            'yes',
-            'true',
-            '1',
-            'on' => true,
-            'n',
-            'no',
-            'false',
-            '0',
-            'off' => false,
-            default => $default,
-        };
     }
 
     /**
