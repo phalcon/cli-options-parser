@@ -11,7 +11,7 @@ Command line arguments/options parser.
 
 ## Requirements
 
-* PHP >= 7.0
+* PHP >= 8.0
 
 ## Installing via [Composer](https://getcomposer.org)
 
@@ -117,5 +117,6 @@ php test.php \
 
 ## License
 
-The Cop is open source software licensed under the [New BSD License](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE.txt).<br>
+The Cop is open source software licensed under the [MIT License](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE).
+
 © Phalcon Team
