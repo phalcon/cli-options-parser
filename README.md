@@ -2,10 +2,9 @@
 
 [![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square)](https://github.com/php-pds/skeleton)
 ![GitHub License](https://img.shields.io/github/license/phalcon/cli-options-parser)
-![Codacy Grade](https://img.shields.io/codacy/grade/286b84c5cf194ca1a29963e7c732a650)
-![Codacy Code Coverage](https://img.shields.io/codacy/coverage/286b84c5cf194ca1a29963e7c732a650)
+![Codacy Grade](https://img.shields.io/codacy/grade/4064c9bc35634505852e41aedaa9386c)
+![Codacy Code Coverage](https://img.shields.io/codacy/coverage/4064c9bc35634505852e41aedaa9386c)
 ![Downloads](https://img.shields.io/packagist/dm/phalcon/cli-options-parser)
-
 
 Command line arguments/options parser.
 
