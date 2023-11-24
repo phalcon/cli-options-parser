@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 /**
  * This file is part of the Cop package.
@@ -8,6 +8,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace Phalcon\Cop\Tests;
 
@@ -30,7 +32,7 @@ class ParserTest extends TestCase
      *
      * @return void
      */
-    public function setUp():void
+    public function setUp(): void
     {
         $this->parser = new Parser();
     }
@@ -124,7 +126,7 @@ class ParserTest extends TestCase
             true,
             new stdClass()
         ];
-        
+
         $nonExistingParameterKey = "non-existing-parameter-key";
 
         foreach ($expectedDefaultValues as $expectedDefaultValue) {
