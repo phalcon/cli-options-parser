@@ -85,7 +85,7 @@
             "phpunit --configuration phpunit.xml.dist"
         ],
         "test-coverage": [
-            "phpunit --configuration phpunit.xml.dist --coverage-clover ./build/clover.xml"
+            "phpunit --configuration phpunit.xml.dist --coverage-clover ./build/coverage.xml"
         ],
         "test-coverage-html": [
             "phpunit --configuration phpunit.xml.dist --coverage-html ./build/coverage"

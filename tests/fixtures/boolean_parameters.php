@@ -20,7 +20,7 @@ return [
                 '1',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [
         'params' => [
@@ -32,7 +32,7 @@ return [
                 '0',
             ],
         ],
-        'expect' => false,
+        'expected' => false,
     ],
     [
         'params' => [
@@ -44,7 +44,7 @@ return [
                 'y',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [
         'params' => [
@@ -56,7 +56,7 @@ return [
                 'n',
             ],
         ],
-        'expect' => false,
+        'expected' => false,
     ],
     [
         'params' => [
@@ -68,7 +68,7 @@ return [
                 'yes',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [
         'params' => [
@@ -80,7 +80,7 @@ return [
                 'no',
             ],
         ],
-        'expect' => false,
+        'expected' => false,
     ],
     [
         'params' => [
@@ -92,7 +92,7 @@ return [
                 'true',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [
         'params' => [
@@ -104,7 +104,7 @@ return [
                 'false',
             ],
         ],
-        'expect' => false,
+        'expected' => false,
     ],
     [
         'params' => [
@@ -116,7 +116,7 @@ return [
                 'on',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [
         'params' => [
@@ -128,7 +128,7 @@ return [
                 'off',
             ],
         ],
-        'expect' => false,
+        'expected' => false,
     ],
     [
         'params' => [
@@ -139,7 +139,7 @@ return [
                 '--key11',
             ],
         ],
-        'expect' => true,
+        'expected' => true,
     ],
     [//test default param
      'params' => [
@@ -150,6 +150,6 @@ return [
              '--key12',
          ],
      ],
-     'expect' => false,
+     'expected' => false,
     ],
 ];

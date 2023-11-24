@@ -20,7 +20,7 @@ return [
              'value2',
          ],
      ],
-     'expect' => [
+     'expected' => [
          'a' => 'value2',
          'z' => 'value1',
          'b' => 'value2',
@@ -37,7 +37,7 @@ return [
              'value2',
          ],
      ],
-     'expect' => [
+     'expected' => [
          'a' => 'value2',
          'b' => 'value2',
          'c' => 'value2',
@@ -53,7 +53,7 @@ return [
              'value2',
          ],
      ],
-     'expect' => [
+     'expected' => [
          'az'  => 'value1',
          'abc' => 'value2',
      ],
@@ -68,7 +68,7 @@ return [
              'eggs',
          ],
      ],
-     'expect' => [
+     'expected' => [
          'foo'  => true,
          'bar'  => 'baz',
          'spam' => 'eggs',
@@ -82,7 +82,7 @@ return [
              'foo',
          ],
      ],
-     'expect' => [
+     'expected' => [
          'a' => 'foo',
          'b' => 'foo',
          'c' => 'foo',
@@ -97,7 +97,7 @@ return [
              'arg3',
          ],
      ],
-     'expect' => [
+     'expected' => [
          0 => 'arg1',
          1 => 'arg2',
          2 => 'arg3',
@@ -121,7 +121,7 @@ return [
              '--s',
          ],
      ],
-     'expect' => [
+     'expected' => [
          0            => 'plain-arg',
          'foo'        => true,
          'bar'        => 'baz',
