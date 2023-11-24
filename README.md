@@ -1,17 +1,17 @@
 # Cop
 
+[![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square)](https://github.com/php-pds/skeleton)
+![GitHub License](https://img.shields.io/github/license/phalcon/cli-options-parser)
+![Codacy Grade](https://img.shields.io/codacy/grade/286b84c5cf194ca1a29963e7c732a650)
+![Codacy Code Coverage](https://img.shields.io/codacy/coverage/286b84c5cf194ca1a29963e7c732a650)
+![Downloads](https://img.shields.io/packagist/dm/phalcon/cli-options-parser)
 
-[![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg)](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/phalcon/cli-options-parser.svg?branch=master)](https://travis-ci.org/phalcon/cli-options-parser)
-[![Code Coverage](https://codecov.io/gh/phalcon/cli-options-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/phalcon/cli-options-parser)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/?branch=master)
-[![Scrutinizer Build Status](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/badges/build.png?b=master)](https://scrutinizer-ci.com/g/phalcon/cli-options-parser/build-status/master)
 
 Command line arguments/options parser.
 
 ## Requirements
 
-* PHP >= 8.0
+*   PHP >= 8.0
 
 ## Installing via [Composer](https://getcomposer.org)
 

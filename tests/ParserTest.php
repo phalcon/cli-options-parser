@@ -146,7 +146,7 @@ class ParserTest extends TestCase
      */
     public function testGetReturnsBoundDefaultValueIfNotSet(array $params): void
     {
-        $expectedDefaultValues = [
+        $expectedValues = [
             123,
             "test",
             12.3,
@@ -156,7 +156,7 @@ class ParserTest extends TestCase
 
         $nonExistingKey = "non-existing-parameter-key";
 
-        foreach ($expectedDefaultValues as $expected) {
+        foreach ($expectedValues as $expected) {
             $actual = $this->parser->get($nonExistingKey, $expected);
             $this->assertSame(
                 $expected,
@@ -168,7 +168,7 @@ class ParserTest extends TestCase
 
         $this->parser->parse($params["command"]);
 
-        foreach ($expectedDefaultValues as $expected) {
+        foreach ($expectedValues as $expected) {
             $actual = $this->parser->get($nonExistingKey, $expected);
             $this->assertSame(
                 $expected,

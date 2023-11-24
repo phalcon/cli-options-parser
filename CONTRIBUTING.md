@@ -30,16 +30,16 @@ Additionally, you can employ the search feature in our documents to locate the
 information you seek. If your question remains unanswered, explore the 
 additional options provided below._
 
-*  Questions should go to [GitHub Discussions](https://phalcon.io/discussions)
-*  Another way is to ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with [`phalcon`](https://stackoverflow.com/questions/tagged/phalcon)
-*  Come join the Phalcon [Discord](https://phalcon.io/discord)
-*  Our social network accounts are:
-  *  [Telegram](https://phalcon.io/telegram)
-  *  [Gab](https://phalcon.io/gab)
-  *  [MeWe](https://phalcon.io/mewe)
-  *  [Twitter](https://phalcon.io/t)
-  *  [Facebook](https://phalcon.io/fb)
-*  If you still believe that what you found is a bug, please [open an issue](https://github.com/phalcon/cphalcon/issues/new)
+*   Questions should go to [GitHub Discussions](https://phalcon.io/discussions)
+*   Another way is to ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with [`phalcon`](https://stackoverflow.com/questions/tagged/phalcon)
+*   Come join the Phalcon [Discord](https://phalcon.io/discord)
+*   Our social network accounts are:
+  -   [Telegram](https://phalcon.io/telegram)
+  -   [Gab](https://phalcon.io/gab)
+  -   [MeWe](https://phalcon.io/mewe)
+  -   [Twitter](https://phalcon.io/t)
+  -   [Facebook](https://phalcon.io/fb)
+*   If you still believe that what you found is a bug, please [open an issue](https://github.com/phalcon/cphalcon/issues/new)
 
 Please report bugs when you've exhausted all of the above options.
 
