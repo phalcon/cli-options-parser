@@ -12,9 +12,9 @@
 return [
     [
         'params' => [
-            'key' => 'key1',
+            'key'     => 'key1',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key1',
                 '1',
@@ -24,9 +24,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key2',
+            'key'     => 'key2',
             'default' => true,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key2',
                 '0',
@@ -36,9 +36,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key3',
+            'key'     => 'key3',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key3',
                 'y',
@@ -48,9 +48,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key4',
+            'key'     => 'key4',
             'default' => true,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key4',
                 'n',
@@ -60,9 +60,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key5',
+            'key'     => 'key5',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key5',
                 'yes',
@@ -72,9 +72,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key6',
+            'key'     => 'key6',
             'default' => true,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key6',
                 'no',
@@ -84,9 +84,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key7',
+            'key'     => 'key7',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key7',
                 'true',
@@ -96,9 +96,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key8',
+            'key'     => 'key8',
             'default' => true,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key8',
                 'false',
@@ -108,9 +108,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key9',
+            'key'     => 'key9',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key9',
                 'on',
@@ -120,9 +120,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key10',
+            'key'     => 'key10',
             'default' => true,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key10',
                 'off',
@@ -132,9 +132,9 @@ return [
     ],
     [
         'params' => [
-            'key' => 'key11',
+            'key'     => 'key11',
             'default' => false,
-            'argv' => [
+            'argv'    => [
                 '/usr/bin/phalcon',
                 '--key11',
             ],
@@ -142,14 +142,14 @@ return [
         'expect' => true,
     ],
     [//test default param
-        'params' => [
-            'key' => 'key13',
-            'default' => false,
-            'argv' => [
-                '/usr/bin/phalcon',
-                '--key12',
-            ],
-        ],
-        'expect' => false,
+     'params' => [
+         'key'     => 'key13',
+         'default' => false,
+         'argv'    => [
+             '/usr/bin/phalcon',
+             '--key12',
+         ],
+     ],
+     'expect' => false,
     ],
 ];

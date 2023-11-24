@@ -124,7 +124,7 @@ class ParserTest extends TestCase
             "test",
             12.3,
             true,
-            new stdClass()
+            new stdClass(),
         ];
 
         $nonExistingParameterKey = "non-existing-parameter-key";
