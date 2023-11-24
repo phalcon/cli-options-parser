@@ -151,4 +151,3 @@ jobs:
         run: |
           bash <(curl -Ls https://coverage.codacy.com/get.sh) \
             report -r ./build/coverage.xml
-        working-directory: reports
