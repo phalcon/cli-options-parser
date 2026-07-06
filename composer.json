@@ -30,8 +30,18 @@
     "require": {
         "php": ">=8.0"
     },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "pds/skeleton": "^1.0",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^9.6",
+        "squizlabs/php_codesniffer": "^4.0"
+    },
     "config": {
         "optimize-autoloader": true,
+        "platform": {
+            "php": "8.0.99"
+        },
         "preferred-install": "dist",
         "sort-packages": true
     },
@@ -42,12 +52,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Phalcon\\Cop\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Phalcon\\Cop\\Tests\\": "tests/"
+            "Phalcon\\Cop\\": "src/",
+            "Phalcon\\Cop\\Tests\\Support\\": "tests/support/",
+            "Phalcon\\Cop\\Tests\\Unit\\": "tests/unit/"
         }
     },
     "minimum-stability": "stable",
@@ -59,36 +66,20 @@
     },
     "archive": {
         "exclude": [
-            "/build",
+            "/.github",
+            "/resources",
             "/tests",
-            "phpcs.xml.dist",
-            "phpunit.xml.dist"
+            "docker-compose.yml"
         ]
-    },
-    "require-dev": {
-        "pds/skeleton": "^1.0",
-        "phpstan/phpstan": "^1.10 || ^2.0",
-        "phpunit/phpunit": "^9.6",
-        "squizlabs/php_codesniffer": "^3.7 || ^4.0"
     },
     "scripts": {
-        "analyze": [
-            "phpstan analyse -l max ./src"
-        ],
-        "cs": [
-            "phpcs --standard=psr12 --extensions=php --ignore=vendor ./src"
-        ],
-        "cs-fix": [
-            "phpcbf --standard=psr12 --extensions=php --ignore=vendor ./src"
-        ],
-        "test": [
-            "phpunit --configuration phpunit.xml.dist"
-        ],
-        "test-coverage": [
-            "phpunit --configuration phpunit.xml.dist --coverage-clover ./build/coverage.xml"
-        ],
-        "test-coverage-html": [
-            "phpunit --configuration phpunit.xml.dist --coverage-html ./build/coverage"
-        ]
+        "analyze": "phpstan analyse -c resources/phpstan.neon --memory-limit 1024M",
+        "cs": "phpcs --standard=resources/phpcs.xml",
+        "cs-fix": "phpcbf --standard=resources/phpcs.xml",
+        "cs-fixer": "php-cs-fixer fix --config=resources/php-cs-fixer.php --dry-run --diff",
+        "cs-fixer-fix": "php-cs-fixer fix --config=resources/php-cs-fixer.php",
+        "test": "phpunit -c resources/phpunit.xml.dist",
+        "test-coverage": "phpunit -c resources/phpunit.xml.dist --coverage-clover tests/_output/coverage.xml",
+        "test-coverage-html": "phpunit -c resources/phpunit.xml.dist --coverage-html tests/_output/coverage"
     }
 }

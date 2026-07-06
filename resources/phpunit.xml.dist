@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         bootstrap="../vendor/autoload.php"
+         cacheResultFile="../tests/_output/.phpunit.result.cache"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <coverage>
+        <include>
+            <directory suffix=".php">../src</directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>../tests/unit</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <ini name="date.timezone" value="UTC"/>
+        <ini name="display_errors" value="On"/>
+        <ini name="display_startup_errors" value="On"/>
+    </php>
+</phpunit>
