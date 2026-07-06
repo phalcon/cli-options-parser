@@ -20,7 +20,7 @@ namespace Phalcon\Cop;
  */
 class Parser
 {
-    /** @var array */
+    /** @var array<array-key, mixed> */
     private array $parsedCommands = [];
 
     /**
@@ -77,8 +77,7 @@ class Parser
     }
 
     /**
-     *
-     * @return array
+     * @return array<array-key, mixed>
      */
     public function getParsedCommands(): array
     {
@@ -100,9 +99,9 @@ class Parser
     /**
      * Parse console input.
      *
-     * @param array $argv Arguments to parse. Defaults to empty array
+     * @param array<int, string> $argv Arguments to parse. Defaults to empty array
      *
-     * @return array
+     * @return array<array-key, mixed>
      */
     public function parse(array $argv = []): array
     {
@@ -119,18 +118,21 @@ class Parser
     /**
      * Gets array of arguments passed from the input.
      *
-     * @return array
+     * @return array<int, string>
      */
     protected function getArgvFromServer(): array
     {
-        return empty($_SERVER['argv']) ? [] : $_SERVER['argv'];
+        /** @var array<int, string> $argv */
+        $argv = empty($_SERVER['argv']) ? [] : $_SERVER['argv'];
+
+        return $argv;
     }
 
     /**
      * @param string $arg   The argument passed
      * @param int    $eqPos The position of where the equals sign is located
      *
-     * @return array
+     * @return array<string, string>
      */
     protected function getParamWithEqual(string $arg, int $eqPos): array
     {
@@ -144,9 +146,9 @@ class Parser
     /**
      * Handle received parameters
      *
-     * @param array $argv The array with the arguments passed in the CLI
+     * @param array<int, string> $argv The array with the arguments passed in the CLI
      *
-     * @return array
+     * @return array<array-key, mixed>
      */
     protected function handleArguments(array $argv): array
     {
