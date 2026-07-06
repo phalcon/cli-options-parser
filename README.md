@@ -1,22 +1,22 @@
-# Cop
+# Phalcon - CLI Options Parser
 
-[![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square)](https://github.com/php-pds/skeleton)
-![GitHub License](https://img.shields.io/github/license/phalcon/cli-options-parser)
-![Codacy Grade](https://img.shields.io/codacy/grade/4064c9bc35634505852e41aedaa9386c)
-![Codacy Code Coverage](https://img.shields.io/codacy/coverage/4064c9bc35634505852e41aedaa9386c)
-![Downloads](https://img.shields.io/packagist/dm/phalcon/cli-options-parser)
+[![CLI Options Parser CI][ci-badge]][ci-link]
+[![Quality Gate Status][sonar-quality-badge]][sonar-link]
+[![Coverage][sonar-coverage-badge]][sonar-link]
+[![PDS Skeleton][pds-skeleton-badge]][pds-skeleton-link]
+[![Downloads][downloads-badge]][downloads-link]
 
 Command line arguments/options parser.
 
 ## Requirements
 
-*   PHP >= 8.0
+* PHP >= 8.0
 
-## Installing via [Composer](https://getcomposer.org)
+## Installation
 
-Install composer in a common location or in your project:
+You can install the package using composer
 
-```bash
+```sh
 composer require phalcon/cli-options-parser
 ```
 
@@ -33,7 +33,7 @@ $params = $parser->parse($argv);
 // Parse params from the $_SERVER['argv']
 $params = $parser->parse();
 
-// After parsing input, Parser provides a way to gets booleans:
+// After parsing input, Parser provides a way to get booleans:
 $parser->getBoolean('foo');
 
 // Get param `foo` or return TRUE as a default value
@@ -84,38 +84,59 @@ php test.php arg1 arg2 arg3
     1 => 'arg2',
     2 => 'arg3',
 ]
-
-php test.php \
-    plain-arg \
-    --foo \
-    --bar=baz \
-    --funny="spam=eggs" \
-    --also-funny=spam=eggs \
-    'plain arg 2'
-    -abc \
-    -k=value \
-    "plain arg 3" \
-    --s="original" \
-    --s='overwrite' \
-    --s
-[
-    0            => 'plain-arg',
-    'foo'        => true,
-    'bar'        => 'baz',
-    'funny'      => 'spam=eggs',
-    'also-funny' => 'spam=eggs',
-    1            => 'plain arg 2',
-    'a'          => true,
-    'b'          => true,
-    'c'          => true,
-    'k'          => 'value',
-    2            => 'plain arg 3',
-    's'          => 'overwrite',
-]
 ```
+
+## Development
+
+The repository ships a Docker setup for local development and testing. You only need Docker +
+Docker Compose; the PHP runtime is provided inside the container.
+
+### Quick start
+
+```bash
+docker compose up -d --build
+docker compose exec app composer install
+docker compose exec app composer test
+```
+
+> `app` is the Compose *service* name; the running container is `cli-options-parser-app`. It stays
+> up via a `sleep infinity` keepalive, so you can `docker compose exec app <cmd>` freely.
+
+### Choosing the PHP version
+
+The image is built for one PHP version at a time via the `PHP_VERSION` build arg (default `8.4`;
+supported `8.0`–`8.4`). Because it is a **build** arg, changing it requires a rebuild:
+
+```bash
+docker compose up -d --build                  # PHP 8.4 (default)
+PHP_VERSION=8.0 docker compose up -d --build  # PHP 8.0
+```
+
+### Composer scripts
+
+| Script | Description |
+| --- | --- |
+| `composer cs` | PHP_CodeSniffer (PSR-12) |
+| `composer cs-fix` | Auto-fix coding-standard issues (phpcbf) |
+| `composer cs-fixer` | PHP CS Fixer (dry-run) |
+| `composer cs-fixer-fix` | Apply PHP CS Fixer |
+| `composer analyze` | PHPStan static analysis (level max) |
+| `composer test` | Unit tests (PHPUnit) |
+| `composer test-coverage` | Tests + Clover coverage (`tests/_output/coverage.xml`) |
 
 ## License
 
-The Cop is open source software licensed under the [MIT License](https://github.com/phalcon/cli-options-parser/blob/master/LICENSE).
+CLI Options Parser is open source software licensed under the [BSD-3-Clause License](LICENSE).
 
 © Phalcon Team
+
+<!-- External links should be here -->
+[ci-badge]:             https://github.com/phalcon/cli-options-parser/actions/workflows/main.yml/badge.svg?branch=master
+[ci-link]:              https://github.com/phalcon/cli-options-parser/actions/workflows/main.yml
+[sonar-quality-badge]:  https://sonarcloud.io/api/project_badges/measure?project=phalcon_cli-options-parser&metric=alert_status
+[sonar-coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=phalcon_cli-options-parser&metric=coverage
+[sonar-link]:           https://sonarcloud.io/summary/new_code?id=phalcon_cli-options-parser
+[pds-skeleton-badge]:   https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square
+[pds-skeleton-link]:    https://github.com/php-pds/skeleton
+[downloads-badge]:      https://img.shields.io/packagist/dm/phalcon/cli-options-parser
+[downloads-link]:       https://packagist.org/packages/phalcon/cli-options-parser
